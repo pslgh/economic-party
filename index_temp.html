@@ -8,33 +8,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        :root {
-            --ink: #0c1b33;
-            --primary: #1a237e;
-            --accent: #f9a825;
-            --glow: 0 10px 30px rgba(0, 0, 0, 0.25);
-        }
-
         body {
-            background: radial-gradient(circle at 20% 20%, rgba(26, 35, 126, 0.08), transparent 35%),
-                radial-gradient(circle at 80% 0%, rgba(249, 168, 37, 0.07), transparent 30%),
-                #f4f6f9;
+            background-color: #f4f6f9;
             font-family: 'Sarabun', sans-serif;
         }
 
         .card {
-            box-shadow: var(--glow);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border: none;
             margin-bottom: 20px;
-            border-radius: 14px;
         }
 
         .card-header {
             background-color: #1a237e;
             color: white;
             font-weight: bold;
-            border-top-left-radius: 14px;
-            border-top-right-radius: 14px;
         }
 
         .highlight-text {
@@ -63,140 +51,13 @@
             background: #e8eaf6;
             z-index: 1;
         }
-
-        /* Hero */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            border-radius: 18px;
-            background: linear-gradient(120deg, rgba(12, 27, 51, 0.85), rgba(26, 35, 126, 0.9));
-            color: #fff;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
-            isolation: isolate;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 75% 20%, rgba(249, 168, 37, 0.35), transparent 40%);
-            z-index: 0;
-        }
-
-        .hero-image {
-            position: relative;
-            z-index: 1;
-            max-height: 420px;
-            border-radius: 16px;
-            object-fit: cover;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .hero .cta-btn {
-            background: linear-gradient(135deg, #f9a825, #ff6f00);
-            border: none;
-            color: #0c1b33;
-            font-weight: 700;
-            padding: 12px 22px;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(249, 168, 37, 0.35);
-        }
-
-        /* Gallery */
-        .poster-card {
-            background: #fff;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: var(--glow);
-            border: 1px solid #eef1f7;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .poster-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 36px rgba(26, 35, 126, 0.15);
-        }
-
-        .poster-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
-
-        .poster-caption {
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge-soft {
-            background: rgba(26, 35, 126, 0.08);
-            color: #1a237e;
-            border-radius: 999px;
-            padding: 6px 12px;
-            font-weight: 600;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            color: #0c1b33;
-        }
-
-        .section-title::before {
-            content: "";
-            width: 40px;
-            height: 4px;
-            background: linear-gradient(135deg, #1a237e, #f9a825);
-            border-radius: 999px;
-            display: inline-block;
-        }
     </style>
-
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container-fluid py-4">
-        <!-- HERO -->
-        <section class="hero p-4 mb-4">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-5 position-relative">
-                    <span class="hero-badge">
-                        <span class="badge bg-warning text-dark fw-bold">Campaign 2026</span>
-                        <small class="text-white-50">พร้อมลุยเลือกตั้ง 8 ก.พ. 2569</small>
-                    </span>
-                    <h1 class="display-6 fw-bold mt-3">พลังเศรษฐกิจใหม่ที่พูดจริง ทำจริง</h1>
-                    <p class="lead text-white-50 mb-3">ยกระดับชีวิตคนไทยด้วยยุทธศาสตร์ Ocean Link, Mega Projects และ Zero
-                        Corruption เพื่อรายได้ที่มั่นคงและสังคมที่เป็นธรรม</p>
-                    <div class="d-flex gap-2">
-                        <button class="btn cta-btn">ดูนโยบายเร่งด่วน</button>
-                        <button class="btn btn-outline-light border-2">ดาวน์โหลดแผ่นพับ</button>
-                    </div>
-                    <p class="mt-3 text-white-50 mb-0">#พรรคเศรษฐกิจ #เลือกตั้ง2569 #พูดจริงทำจริง</p>
-                </div>
-                <div class="col-lg-7">
-                    <img src="assets/images/HeroPoster.png" alt="Hero Poster" class="hero-image">
-                </div>
-            </div>
-        </section>
-
         <div class="row mb-4">
             <div class="col-12 text-center">
                 <h1 class="display-5 fw-bold text-primary">ยุทธศาสตร์หาเสียง "พรรคเศรษฐกิจ"</h1>
