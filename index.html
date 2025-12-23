@@ -64,6 +64,15 @@
             z-index: 1;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #contentTable,
+        #key-policies {
+            scroll-margin-top: 100px;
+        }
+
         /* Hero */
         .hero {
             position: relative;
@@ -166,6 +175,27 @@
             border-radius: 999px;
             display: inline-block;
         }
+
+        .hero-hashtags {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f9a825;
+            letter-spacing: 0.4px;
+        }
+
+        .hero-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+            color: #ffecb3;
+            font-weight: 600;
+        }
+
+        .hero-arrow::before {
+            content: "⬇";
+            font-size: 2.7rem;
+        }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
@@ -182,14 +212,17 @@
                         <span class="badge bg-warning text-dark fw-bold">Campaign 2026</span>
                         <small class="text-white-50">พร้อมลุยเลือกตั้ง 8 ก.พ. 2569</small>
                     </span>
-                    <h1 class="display-6 fw-bold mt-3">พลังเศรษฐกิจใหม่ที่พูดจริง ทำจริง</h1>
-                    <p class="lead text-white-50 mb-3">ยกระดับชีวิตคนไทยด้วยยุทธศาสตร์ Ocean Link, Mega Projects และ Zero
-                        Corruption เพื่อรายได้ที่มั่นคงและสังคมที่เป็นธรรม</p>
-                    <div class="d-flex gap-2">
-                        <button class="btn cta-btn">ดูนโยบายเร่งด่วน</button>
-                        <button class="btn btn-outline-light border-2">ดาวน์โหลดแผ่นพับ</button>
+                    <h1 class="display-6 fw-bold mt-3">ปราบโกง สร้างงาน เชื่อมโลก ปฏิรูปยุติธรรม </h1>
+                    <p class="lead text-white-45 mb-3">แผนชัด ทำได้จริง ยกระดับชีวิตคนไทยด้วยยุทธศาสตร์ Ocean Link, Mega
+                        Projects และ Zero Corruption เพื่อรายได้ที่มั่นคงและสังคมที่เป็นธรรม</p>
+                    <p class="mt-3 hero-hashtags mb-1">#พรรคเศรษฐกิจ #พลเอกรังษี #พูดจริงทำจริง </p>
+                    <div class="hero-arrow">เลื่อนลงเพื่อดูรายละเอียด</div>
+                    <div class="d-flex gap-2 mt-3">
+                        <a class="btn cta-btn" href="#contentTableSection" role="button"> Post ดันแชร์ </a>
+                        <a class="btn btn-outline-light border-2" href="#key-policies" role="button"> Comment โดนใจ </a>
+                        <a class="btn cta-btn" href="#contentTableSection" role="button"> Media Contents </a>
+
                     </div>
-                    <p class="mt-3 text-white-50 mb-0">#พรรคเศรษฐกิจ #เลือกตั้ง2569 #พูดจริงทำจริง</p>
                 </div>
                 <div class="col-lg-7">
                     <img src="assets/images/HeroPoster.png" alt="Hero Poster" class="hero-image">
@@ -207,7 +240,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <div class="card h-100">
+                <div class="card h-100" id="key-policies">
                     <div class="card-header">จุดเด่น & นโยบายหลัก (Key Selling Points)</div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
@@ -274,7 +307,7 @@
 
         <div class="row mt-4">
             <div class="col-12">
-                <div class="card">
+                <div class="card" id="contentTableSection">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <span>ตารางแผน Content (Social Media Plan)</span>
                         <small class="badge bg-warning text-dark">Total: 20 Posts</small>
@@ -558,7 +591,105 @@
                 </div>
             </div>
         </div>
+
+        <!-- Hero copy options -->
+        <div class="row mt-4 g-3">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>ตัวเลือก Headline สำหรับ Hero (เลือก 1 บรรทัดหลัก + 1 บรรทัดรอง)</span>
+                        <small class="badge bg-primary">ใช้ใกล้ตารางแผน Content</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">ดุดันที่สุด (เปิดเกม)</div>
+                        <div>หยุดโกง พลิกประเทศ สร้างอนาคตไทย</div>
+                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">เน้นแลนด์สไลด์</div>
+                        <div>ถึงเวลาชนะให้ขาด เพื่อเปลี่ยนประเทศทั้งระบบ</div>
+                        <div class="text-muted">เศรษฐกิจต้องมีเจ้าภาพ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">เน้นผู้นำ</div>
+                        <div>ประเทศต้องการผู้นำที่กล้าตัดสินใจ</div>
+                        <div class="text-muted">ไม่พูดมาก แต่ทำให้เห็นผลจริง</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">เน้นนโยบาย</div>
+                        <div>ปราบโกง สร้างงาน เชื่อมโลก ปฏิรูปยุติธรรม</div>
+                        <div class="text-muted">แผนชัด ทำได้จริง เพื่อคนไทยทั้งประเทศ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">เน้นปากท้อง</div>
+                        <div>ลดต้นทุนชีวิต เพิ่มรายได้คนไทย</div>
+                        <div class="text-muted">เศรษฐกิจจริง ไม่ใช่คำสัญญา</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">สั้น กระแทกใจ</div>
+                        <div>เศรษฐกิจต้องมีเจ้าภาพ</div>
+                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">ใช้กับภาพผู้นำ</div>
+                        <div>ถึงเวลาคนทำงานจริง บริหารประเทศจริง</div>
+                        <div class="text-muted">ชนะอย่างแลนด์สไลด์ เพื่ออนาคตไทย</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="fw-bold mb-1">สำหรับหน้า Campaign</div>
+                        <div>4 นโยบายเด็ด พลิกประเทศทั้งระบบ</div>
+                        <div class="text-muted">ชนะวันนี้ เพื่ออนาคตลูกหลาน</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        // Ensure in-page buttons scroll reliably
+        document.querySelectorAll('a[href="#contentTableSection"], a[href="#key-policies"]').forEach((btn) => {
+            btn.addEventListener('click', (event) => {
+                const target = document.querySelector(btn.getAttribute('href'));
+                if (target) {
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
