@@ -4,669 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Economic Party - Campaign Dashboard 2026</title>
+    <title>Economic Party - The Final Exit 2026</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&family=Sarabun:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        :root {
-            --ink: #0c1b33;
-            --primary: #1a237e;
-            --accent: #f9a825;
-            --glow: 0 10px 30px rgba(0, 0, 0, 0.25);
-        }
-
-        body {
-            background: radial-gradient(circle at 20% 20%, rgba(26, 35, 126, 0.08), transparent 35%),
-                radial-gradient(circle at 80% 0%, rgba(249, 168, 37, 0.07), transparent 30%),
-                #f4f6f9;
-            font-family: 'Sarabun', sans-serif;
-        }
-
-        .card {
-            box-shadow: var(--glow);
-            border: none;
-            margin-bottom: 20px;
-            border-radius: 14px;
-        }
-
-        .card-header {
-            background-color: #1a237e;
-            color: white;
-            font-weight: bold;
-            border-top-left-radius: 14px;
-            border-top-right-radius: 14px;
-        }
-
-        .highlight-text {
-            color: #d32f2f;
-            font-weight: bold;
-        }
-
-        /* ปรับสี Hashtag ให้เด่นขึ้น */
-        .hashtag {
-            color: #0d47a1;
-            font-style: italic;
-            font-size: 0.9em;
-            display: block;
-            margin-top: 10px;
-            font-weight: 500;
-        }
-
-        .table-responsive {
-            max-height: 800px;
-            overflow-y: auto;
-        }
-
-        th {
-            position: sticky;
-            top: 0;
-            background: #e8eaf6;
-            z-index: 1;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        #contentTable,
-        #key-policies {
-            scroll-margin-top: 100px;
-        }
-
-        /* Hero */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            border-radius: 18px;
-            background: linear-gradient(120deg, rgba(12, 27, 51, 0.85), rgba(26, 35, 126, 0.9));
-            color: #fff;
-            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
-            isolation: isolate;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 75% 20%, rgba(249, 168, 37, 0.35), transparent 40%);
-            z-index: 0;
-        }
-
-        .hero-image {
-            position: relative;
-            z-index: 1;
-            max-height: 420px;
-            border-radius: 16px;
-            object-fit: cover;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .hero .cta-btn {
-            background: linear-gradient(135deg, #f9a825, #ff6f00);
-            border: none;
-            color: #0c1b33;
-            font-weight: 700;
-            padding: 12px 22px;
-            border-radius: 12px;
-            box-shadow: 0 12px 24px rgba(249, 168, 37, 0.35);
-        }
-
-        /* Gallery */
-        .poster-card {
-            background: #fff;
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: var(--glow);
-            border: 1px solid #eef1f7;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .poster-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 36px rgba(26, 35, 126, 0.15);
-        }
-
-        .poster-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-        }
-
-        .poster-caption {
-            padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .badge-soft {
-            background: rgba(26, 35, 126, 0.08);
-            color: #1a237e;
-            border-radius: 999px;
-            padding: 6px 12px;
-            font-weight: 600;
-        }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            color: #0c1b33;
-        }
-
-        .section-title::before {
-            content: "";
-            width: 40px;
-            height: 4px;
-            background: linear-gradient(135deg, #1a237e, #f9a825);
-            border-radius: 999px;
-            display: inline-block;
-        }
-
-        .hero-hashtags {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #f9a825;
-            letter-spacing: 0.4px;
-        }
-
-        .hero-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-            color: #ffecb3;
-            font-weight: 600;
-        }
-
-        .hero-arrow::before {
-            content: "⬇";
-            font-size: 2.7rem;
-        }
-    </style>
-
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom Theme -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <div class="container-fluid py-4">
-        <!-- HERO -->
-        <section class="hero p-4 mb-4">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-5 position-relative">
-                    <span class="hero-badge">
-                        <span class="badge bg-warning text-dark fw-bold">Campaign 2026</span>
-                        <small class="text-white-50">พร้อมลุยเลือกตั้ง 8 ก.พ. 2569</small>
-                    </span>
-                    <h1 class="display-6 fw-bold mt-3">ปราบโกง สร้างงาน เชื่อมโลก ปฏิรูปยุติธรรม </h1>
-                    <p class="lead text-white-45 mb-3">แผนชัด ทำได้จริง ยกระดับชีวิตคนไทยด้วยยุทธศาสตร์ Ocean Link, Mega
-                        Projects และ Zero Corruption เพื่อรายได้ที่มั่นคงและสังคมที่เป็นธรรม</p>
-                    <p class="mt-3 hero-hashtags mb-1">#พรรคเศรษฐกิจ #พลเอกรังษี #พูดจริงทำจริง </p>
-                    <div class="hero-arrow">เลื่อนลงเพื่อดูรายละเอียด</div>
-                    <div class="d-flex gap-2 mt-3">
-                        <a class="btn cta-btn" href="#contentTableSection" role="button"> Post ดันแชร์ </a>
-                        <a class="btn btn-outline-light border-2" href="#key-policies" role="button"> Comment โดนใจ </a>
-                        <a class="btn cta-btn" href="#contentTableSection" role="button"> Media Contents </a>
+    <!-- NAV / HERO HEADER -->
+    <div class="container-fluid pt-4">
+        <header class="d-flex justify-content-between align-items-center mb-5 px-4">
+            <div class="h3 fw-bold text-gold m-0">พรรคเศรษฐกิจ <span class="text-white fs-6 opacity-75">| Economic
+                    Party</span></div>
+            <div>
+                <span class="hero-badge-gold">Election 2026</span>
+            </div>
+        </header>
 
+        <!-- HERO SECTION -->
+        <section class="container mb-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1 class="text-display-giant text-gradient-gold mb-3 lh-1">THE FINAL EXIT<br><span
+                            class="text-white fs-2 fw-normal d-block mt-2">ทางรอดสุดท้าย</span></h1>
+                    <p class="lead text-white-muted mb-4 fs-4">
+                        "หยุดเลือดไหล ผ่าตัดโครงสร้าง สร้างเครื่องยนต์เศรษฐกิจใหม่"<br>
+                        ยุทธศาสตร์ชาติ 4 ระยะ พลิกฟื้นประเทศไทยให้กลับมามั่งคั่งและยั่งยืน
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#roadmap" class="btn btn-gold btn-pulse btn-lg px-5">ดูแผนยุทธศาสตร์</a>
+                        <a href="#comparison" class="btn btn-outline-light rounded-pill px-4 btn-lg">ทำไมต้องเรา?</a>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <img src="assets/images/HeroPoster.png" alt="Hero Poster" class="hero-image">
+                <div class="col-lg-6 position-relative">
+                    <div class="card-premium p-1">
+                        <img src="assets/images/HeroPoster.png" alt="General Rungsri" class="img-fluid rounded-3 w-100"
+                            style="min-height: 300px; object-fit: cover; background: #222;">
+                    </div>
+                    <!-- Decorative element -->
+                    <div
+                        style="position: absolute; width: 150px; height: 150px; background: var(--gold-primary); filter: blur(80px); opacity: 0.2; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1;">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <div class="row mb-4">
-            <div class="col-12 text-center">
-                <h1 class="display-5 fw-bold text-primary">ยุทธศาสตร์หาเสียง "พรรคเศรษฐกิจ"</h1>
-                <p class="lead">เลือกตั้ง 8 ก.พ. 2569 | แคนดิเดตนายก: <span class="fw-bold">พลเอก รังษี
-                        กิติญาณทรัพย์</span></p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card h-100" id="key-policies">
-                    <div class="card-header">จุดเด่น & นโยบายหลัก (Key Selling Points)</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>หัวหน้าพรรค:</strong> ผู้นำเด็ดขาด (Military Background)
+        <!-- KEY POLICIES & PRIME TIME -->
+        <section id="key-policies" class="container mb-5">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card-light-yellow p-4 h-100">
+                        <h4 class="text-dark border-bottom border-warning pb-2 mb-3">จุดเด่น & นโยบายหลัก (Key Selling
+                            Points)</h4>
+                        <ul class="list-unstyled text-dark">
+                            <li class="mb-3"><strong>👮 หัวหน้าพรรค:</strong> ผู้นำเด็ดขาด (Military Background)
                                 แต่เชี่ยวชาญเศรษฐกิจ ภาพลักษณ์ "พูดจริง ทำจริง"</li>
-                            <li class="list-group-item"><strong>Zero Corruption:</strong> ปราบโกงโทษประหาร คดีจบใน 1 ปี
+                            <li class="mb-3"><strong>⚖️ Zero Corruption:</strong> ปราบโกงโทษประหาร คดีจบใน 1 ปี
                                 ยึดทรัพย์ทันที</li>
-                            <li class="list-group-item"><strong>Ocean Link:</strong> เขตเศรษฐกิจพิเศษทางทะเล เชื่อมโลก
+                            <li class="mb-3"><strong>🌊 Ocean Link:</strong> เขตเศรษฐกิจพิเศษทางทะเล เชื่อมโลก
                                 ดันรายได้คนไทย 50,000 บาท</li>
-                            <li class="list-group-item"><strong>Mega Projects:</strong> รถไฟความเร็วสูงเชื่อมอาเซียน +
+                            <li class="mb-3"><strong>🚄 Mega Projects:</strong> รถไฟความเร็วสูงเชื่อมอาเซียน +
                                 นิคมเกษตรอุตสาหกรรมแปรรูป</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="card h-100">
-                    <div class="card-header bg-success text-white">ช่วงเวลาทองในการโพสต์ (Prime Time)</div>
-                    <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Platform</th>
-                                    <th>เวลาที่ควรโพสต์</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong style="color:#1877F2">Facebook</strong></td>
-                                    <td>07:00-09:00, 11:00-13:00, 18:00-21:00</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color:#E1306C">Instagram</strong></td>
-                                    <td>11:00-13:00, 19:00-21:00</td>
-                                </tr>
-                                <tr>
-                                    <td><strong style="color:#000000">TikTok</strong></td>
-                                    <td>18:00-22:00 (เน้นช่วงดึก)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-3">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body d-flex justify-content-around flex-wrap text-center">
-                        <div class="p-2"><strong>Gen X (38%)</strong><br><span class="text-muted">ความมั่นคง</span>
-                        </div>
-                        <div class="p-2"><strong>Gen Y (33%)</strong><br><span
-                                class="text-muted">หนี้สิน/การสร้างตัว</span></div>
-                        <div class="p-2"><strong>Gen Z (14%)</strong><br><span class="text-muted">New
-                                Voter/เสรีภาพ</span></div>
-                        <div class="p-2"><strong>Boomer (15%)</strong><br><span class="text-muted">ความสงบ/ศาสนา</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hero copy options -->
-        <div class="row mt-4 g-3">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <span>ตัวเลือก Headline สำหรับ Hero (เลือก 1 บรรทัดหลัก + 1 บรรทัดรอง)</span>
-                        <small class="badge bg-primary">ใช้ใกล้ตารางแผน Content</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">ดุดันที่สุด (เปิดเกม)</div>
-                        <div>หยุดโกง พลิกประเทศ สร้างอนาคตไทย</div>
-                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นแลนด์สไลด์</div>
-                        <div>ถึงเวลาชนะให้ขาด เพื่อเปลี่ยนประเทศทั้งระบบ</div>
-                        <div class="text-muted">เศรษฐกิจต้องมีเจ้าภาพ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นผู้นำ</div>
-                        <div>ประเทศต้องการผู้นำที่กล้าตัดสินใจ</div>
-                        <div class="text-muted">ไม่พูดมาก แต่ทำให้เห็นผลจริง</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นนโยบาย</div>
-                        <div>ปราบโกง สร้างงาน เชื่อมโลก ปฏิรูปยุติธรรม</div>
-                        <div class="text-muted">แผนชัด ทำได้จริง เพื่อคนไทยทั้งประเทศ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นปากท้อง</div>
-                        <div>ลดต้นทุนชีวิต เพิ่มรายได้คนไทย</div>
-                        <div class="text-muted">เศรษฐกิจจริง ไม่ใช่คำสัญญา</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">สั้น กระแทกใจ</div>
-                        <div>เศรษฐกิจต้องมีเจ้าภาพ</div>
-                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">ใช้กับภาพผู้นำ</div>
-                        <div>ถึงเวลาคนทำงานจริง บริหารประเทศจริง</div>
-                        <div class="text-muted">ชนะอย่างแลนด์สไลด์ เพื่ออนาคตไทย</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">สำหรับหน้า Campaign</div>
-                        <div>4 นโยบายเด็ด พลิกประเทศทั้งระบบ</div>
-                        <div class="text-muted">ชนะวันนี้ เพื่ออนาคตลูกหลาน</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card" id="contentTableSection">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <span>ตารางแผน Content (Social Media Plan)</span>
-                        <small class="badge bg-warning text-dark">Total: 20 Posts</small>
-                    </div>
-                    <div class="card-body p-0">
+                <div class="col-md-6">
+                    <div class="card-light-yellow p-4 h-100">
+                        <h4 class="text-dark border-bottom border-warning pb-2 mb-3">ช่วงเวลาทองในการโพสต์ (Prime Time)
+                        </h4>
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover mb-0" id="contentTable">
-                                <thead class="table-dark">
+                            <table class="table table-bordered border-warning mb-0" style="background: transparent;">
+                                <thead style="background: rgba(255, 215, 0, 0.3);">
                                     <tr>
-                                        <th style="width: 10%">กลุ่มเป้าหมาย</th>
-                                        <th style="width: 10%">Tone</th>
-                                        <th style="width: 20%">พาดหัว (Headline)</th>
-                                        <th style="width: 35%">เนื้อหาโพสต์ (Caption)</th>
-                                        <th style="width: 25%">Seeding Comment</th>
+                                        <th class="text-dark">Platform</th>
+                                        <th class="text-dark">เวลาที่ควรโพสต์</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Gen Z<br><small>(18-25)</small></td>
-                                        <td><span class="badge bg-info text-dark">บ้านๆ</span></td>
-                                        <td>เรียนจบแล้วไปไหน? ถ้างานหายากนัก มาทางนี้!</td>
-                                        <td>จบมาเตะฝุ่น ไม่ใช่เพราะเราไม่เก่ง แต่โครงสร้างมันห่วย!<br>พลเอกรังษี
-                                            ไม่ขายฝัน แต่สร้างงานจริงด้วย 'Ocean Link' เขตเศรษฐกิจใหม่ ดึงเงินนอกเข้าไทย
-                                            งาน High Tech เงินเดือนสูงรออยู่เพียบ<br>อย่าปล่อยให้อนาคตจมปลัก
-                                            เลือกคนที่กล้ารื้อระบบ เพื่อพวกเรา!
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #งานดีเงินดี
-                                                #จบใหม่มีงานทำ #วัยรุ่นสร้างตัว</span>
-                                        </td>
-                                        <td>นโยบายนี้ตอบโจทย์เด็กจบใหม่สุดๆ ไม่อยากย้ายประเทศแล้ว</td>
+                                        <td class="text-dark"><strong style="color:#0d47a1">Facebook</strong></td>
+                                        <td class="text-dark">07:00-09:00, 11:00-13:00, 18:00-21:00</td>
                                     </tr>
                                     <tr>
-                                        <td>Gen Z</td>
-                                        <td><span class="badge bg-secondary">Soft/ผู้ดี</span></td>
-                                        <td>ความยุติธรรมที่จับต้องได้ เพื่อสังคมที่เท่าเทียม</td>
-                                        <td>สังคมที่น่าอยู่ คือสังคมที่กติกาเป็นธรรม... พรรคเศรษฐกิจ
-                                            มุ่งมั่นปฏิรูปกระบวนการยุติธรรม คดีคอร์รัปชันต้องจบไว
-                                            คนผิดต้องได้รับโทษโดยไม่มีข้อยกเว้น
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ความยุติธรรม
-                                                #ปฏิรูปกฎหมาย #CleanPolitics</span>
-                                        </td>
-                                        <td>ชอบวิสัยทัศน์ครับ อยากเห็นกฎหมายศักดิ์สิทธิ์จริงๆ สักที</td>
+                                        <td class="text-dark"><strong style="color:#b71c1c">Instagram</strong></td>
+                                        <td class="text-dark">11:00-13:00, 19:00-21:00</td>
                                     </tr>
                                     <tr>
-                                        <td>Gen Z</td>
-                                        <td><span class="badge bg-primary">Hard/Editor</span></td>
-                                        <td>ถึงเวลา 'Reset' ประเทศ ด้วยยุทธศาสตร์เศรษฐกิจใหม่</td>
-                                        <td>ในยุคที่ Disruption ไล่ล่าเรา ไทยจะอยู่เฉยไม่ได้... พลเอกรังษี เสนอโมเดล
-                                            'The Final Exit' เชื่อมโยง Logistics โลกผ่านไทย
-                                            เปลี่ยนภูมิรัฐศาสตร์ให้เป็นเงินตรา
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #StartUpThailand
-                                                #LogisticsHub #ResetThailand</span>
-                                        </td>
-                                        <td>นี่คือสิ่งที่รอมานาน เลิกคุยเรื่องเดิมๆ แล้วคุยเรื่องอนาคตแบบนี้สิ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen Z</td>
-                                        <td><span class="badge bg-danger">Hard/แรง</span></td>
-                                        <td>พวกโกงชาติ... เตรียมตัว 'เกม' ได้เลย!</td>
-                                        <td>เบื่อไหม? ข่าวโกงกินเป็นพันล้านแต่คนทำลอยนวล... พรรคเศรษฐกิจ ของจริง!
-                                            ปราบโกงโทษประหาร ยึดทรัพย์ทันที คดีจบใน 1 ปี ใครกัดกินอนาคตเจอของจริงแน่!
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ปราบโกง
-                                                #CorruptionMustDie #คนรุ่นใหม่ไม่ทน</span>
-                                        </td>
-                                        <td>สะใจมาก! ต้องแบบนี้สิถึงจะแก้ปัญหาได้จริง</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Gen Y<br><small>(26-40)</small></td>
-                                        <td><span class="badge bg-info text-dark">บ้านๆ</span></td>
-                                        <td>หนี้บาน เงินเดือนตัน ฟังทางนี้!</td>
-                                        <td>ผ่อนบ้าน ผ่อนรถ ค่าเทอมลูก... หมุนเงินจนหน้ามืด! พลเอกรังษี
-                                            เข้าใจคนทำมาหากิน นโยบายลดค่าครองชีพ ลดค่าไฟ ลดราคาน้ำมัน ทำทันที!
-                                            พร้อมดึงงานใหญ่เข้าประเทศ
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #มนุษย์เงินเดือน #ปลดหนี้
-                                                #ค่าครองชีพแพง</span>
-                                        </td>
-                                        <td>เข้าใจหัวอกคนวัยสร้างตัวที่สุด นโยบายนี้ช่วยได้เยอะเลย</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen Y</td>
-                                        <td><span class="badge bg-secondary">Soft/ผู้ดี</span></td>
-                                        <td>สร้างความมั่นคง... ให้กับคนที่คุณรัก</td>
-                                        <td>เพราะเรารู้ว่า 'ครอบครัว' สำคัญที่สุดสำหรับคุณ... พรรคเศรษฐกิจ
-                                            มุ่งมั่นสร้างรากฐานเศรษฐกิจที่แข็งแกร่ง ผ่านโครงการ Mega Projects
-                                            เพื่อให้คุณมั่นใจได้ว่าวันพรุ่งนี้จะมีงานที่มั่นคง
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ครอบครัวอบอุ่น
-                                                #ความมั่นคง</span>
-                                        </td>
-                                        <td>อ่านแล้วมีหวังเลยค่ะ เพื่อลูกหลานเราต้องเลือกพรรคนี้</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen Y</td>
-                                        <td><span class="badge bg-primary">Hard/Editor</span></td>
-                                        <td>ปลดล็อกศักยภาพไทย สู่ศูนย์กลางเศรษฐกิจอาเซียน</td>
-                                        <td>กับดักรายได้ปานกลาง คือสิ่งที่ฉุดรั้งคน Gen Y... พลเอกรังษี นำเสนอยุทธศาสตร์
-                                            'Ocean Link' เชื่อมสองฝั่งมหาสมุทร ยกระดับไทยสู่ Global Supply Chain
-                                            ดึงเม็ดเงินลงทุนมหาศาล
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #MiddleIncomeTrap
-                                                #เศรษฐกิจมหภาค #ASEANHub</span>
-                                        </td>
-                                        <td>วิเคราะห์ได้ตรงจุดครับ ถ้าทำได้จริง ไทยไปไกลแน่</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen Y</td>
-                                        <td><span class="badge bg-danger">Hard/แรง</span></td>
-                                        <td>หยุดระบบอุปถัมภ์ เส้นสายต้องหมดไป!</td>
-                                        <td>เก่งแค่ไหน ก็แพ้เด็กนาย... พอซะที! ภายใต้การนำของพลเอกรังษี
-                                            ความสามารถต้องมาก่อนเส้นสาย! รื้อระบบราชการที่ล่าช้า ล้างบางมาเฟียคุมสัมปทาน
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ล้างระบบเส้นสาย #คนทำงาน
-                                                #FairGame</span>
-                                        </td>
-                                        <td>โดนใจมาก ทำงานแทบตายแพ้เด็กเส้น ต้องล้างบางพวกนี้</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Gen X<br><small>(41-55)</small></td>
-                                        <td><span class="badge bg-info text-dark">บ้านๆ</span></td>
-                                        <td>ค้าขายเงียบเหงา ต้องเอานายกฯ ที่กล้าตัดสินใจ</td>
-                                        <td>เปิดร้านมานั่งตบยุง ลูกค้าหายหมด เพราะเศรษฐกิจมันนิ่ง! ต้องเลือก
-                                            'พลเอกรังษี' คนจริง สั่งการไว แก้ปัญหาเศรษฐกิจแบบทหาร ตูมเดียวจบ! รถไฟมา
-                                            ตลาดเปิด เงินสะพัด
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #พ่อค้าแม่ค้า
-                                                #เศรษฐกิจซบเซา #ค้าขายร่ำรวย</span>
-                                        </td>
-                                        <td>ค้าขายแย่มานาน อยากได้คนเด็ดขาดมาแก้ปัญหาจริงๆ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen X</td>
-                                        <td><span class="badge bg-secondary">Soft/ผู้ดี</span></td>
-                                        <td>คืนความสงบสุข และความมั่งคั่งสู่สังคมไทย</td>
-                                        <td>เราผ่านความขัดแย้งมามากพอแล้ว... ถึงเวลาของผู้นำที่เข้มแข็งแต่เข้าใจปัญหา
-                                            พลเอกรังษี พร้อมนำพาประเทศก้าวข้ามความขัดแย้ง
-                                            มุ่งสู่การพัฒนาเศรษฐกิจที่ยั่งยืน
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ความสงบสุข #ปรองดอง
-                                                #UnityThailand</span>
-                                        </td>
-                                        <td>เห็นด้วยค่ะ เบื่อความวุ่นวาย อยากให้ประเทศเดินหน้าสักที</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen X</td>
-                                        <td><span class="badge bg-primary">Hard/Editor</span></td>
-                                        <td>ผู้นำวิสัยทัศน์ไกล พาไทยพ้นวิกฤต</td>
-                                        <td>โลกกำลังเปลี่ยน ไทยต้องปรับครั้งใหญ่... ประสบการณ์ความเด็ดขาดของพลเอกรังษี
-                                            ผสานกับนโยบายเศรษฐกิจระดับมหภาค คือคำตอบของการฝ่าวิกฤตซ้อนวิกฤต
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #VisionaryLeader
-                                                #CrisisManagement #ThailandFuture</span>
-                                        </td>
-                                        <td>เชื่อมั่นในวิสัยทัศน์ครับ ประเทศเราต้องการผู้นำที่มองไกลแบบนี้</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gen X</td>
-                                        <td><span class="badge bg-danger">Hard/แรง</span></td>
-                                        <td>กวาดล้างข้าราชการกังฉิน คืนภาษีให้ประชาชน!</td>
-                                        <td>ภาษีทุกบาทที่เราจ่าย ไปเข้ากระเป๋าใคร? พลเอกรังษี ประกาศสงครามกับคอร์รัปชัน!
-                                            ใครโกงกินงบประมาณแผ่นดิน เจอโทษหนักไม่มีละเว้น เงินภาษีต้องกลับมาเป็นถนน
-                                            เป็นโรงพยาบาล
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ภาษีกู #ปราบโกง
-                                                #ทวงคืนภาษี</span>
-                                        </td>
-                                        <td>จัดหนักๆ เลยครับท่าน เกลียดพวกโกงกินที่สุด</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Boomer<br><small>(55+)</small></td>
-                                        <td><span class="badge bg-info text-dark">บ้านๆ</span></td>
-                                        <td>บ้านเมืองสงบ ลูกหลานมีงานทำ เลือกบิ๊กรังษี</td>
-                                        <td>คนแก่ๆ อย่างเรา ไม่ขออะไรมาก ขอแค่บ้านเมืองไม่วุ่นวาย...
-                                            ลุงรังษีแกเป็นทหารเก่า แกเอาอยู่! บ้านเมืองสงบ เศรษฐกิจก็ดี
-                                            ลูกหลานก็กลับมาหางานทำที่บ้านได้
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #รักชาติศาสน์กษัตริย์
-                                                #บ้านเมืองสงบ #คนดีศรีสังคม</span>
-                                        </td>
-                                        <td>ลุงแกดูพึ่งพาได้ ขอให้บ้านเมืองสงบจริงๆ เถอะ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Boomer</td>
-                                        <td><span class="badge bg-secondary">Soft/ผู้ดี</span></td>
-                                        <td>สืบสานปณิธาน เพื่อแผ่นดินไทยที่ร่มเย็น</td>
-                                        <td>ด้วยเกียรติและศักดิ์ศรีของชายชาติทหาร... พลเอกรังษี ขออาสาดูแลแผ่นดินไทย
-                                            ให้คงความร่มเย็นเป็นสุข ปราศจากการทุจริตที่กัดกินชาติบ้านเมือง
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #เกียรติยศ #ชายชาติทหาร
-                                                #รักแผ่นดิน</span>
-                                        </td>
-                                        <td>ขอเป็นกำลังใจให้ท่านครับ ประเทศเราต้องการคนดีปกครอง</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Boomer</td>
-                                        <td><span class="badge bg-primary">Hard/Editor</span></td>
-                                        <td>ฟื้นฟูเสถียรภาพ สร้างชาติมั่นคง</td>
-                                        <td>ความมั่นคงของชาติ คือรากฐานของเศรษฐกิจ... นโยบายความมั่นคงของพรรคเศรษฐกิจ
-                                            ไม่ใช่แค่เรื่องการทหาร แต่คือความมั่นคงทางอาหาร พลังงาน และเศรษฐกิจชุมชน
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #NationalSecurity
-                                                #FoodSecurity #เสถียรภาพ</span>
-                                        </td>
-                                        <td>วิเคราะห์ได้ลึกซึ้งครับ ความมั่นคงคือพื้นฐานของทุกอย่างจริงๆ</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Boomer</td>
-                                        <td><span class="badge bg-danger">Hard/แรง</span></td>
-                                        <td>อย่าปล่อยให้คนชั่วลอยนวล! กฎหมายต้องศักดิ์สิทธิ์</td>
-                                        <td>เห็นข่าวทุกวันนี้แล้วเจ็บใจ! กฎหมายทำอะไรคนรวยไม่ได้? ยุคพลเอกรังษี
-                                            ต้องไม่มีสองมาตรฐาน! ผิดคือผิด โกงคือประหาร! เลิกเกรงใจอิทธิพลมืด
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #กฎหมายศักดิ์สิทธิ์
-                                                #ยุติธรรม #ขจัดคนพาล</span>
-                                        </td>
-                                        <td>สนับสนุนเต็มที่ครับ กฎหมายต้องเป็นกฎหมาย</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>เกษตรกร</td>
-                                        <td><span class="badge bg-success">Specific</span></td>
-                                        <td>ปลดแอกหนี้สิน! รวยด้วยเกษตรแปรรูป</td>
-                                        <td>ทำนามาทั้งชีวิต มีแต่หนี้กับหนี้! พรรคเศรษฐกิจ ไม่แจกเงินให้เป็นหนี้บุญคุณ
-                                            แต่จะสร้างโรงงานแปรรูปให้ถึงที่! รับซื้อราคาประกัน!
-                                            มีน้ำตลอดปีด้วยระบบชลประทานใหม่
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #เกษตรกรร่ำรวย #ราคาข้าวดี
-                                                #ปลดหนี้เกษตร</span>
-                                        </td>
-                                        <td>ถ้าทำได้จริง ชาวนาลืมตาอ้าปากได้แน่นอน</td>
-                                    </tr>
-                                    <tr>
-                                        <td>แรงงาน</td>
-                                        <td><span class="badge bg-success">Specific</span></td>
-                                        <td>ค่าแรงต้องพอกิน! สวัสดิการต้องถึง!</td>
-                                        <td>ทำงานงกๆ เงินไม่พอใช้หนี้! นโยบาย Ocean Link จะดึงโรงงานใหญ่ๆ เข้ามา
-                                            แย่งกันจ้างคนงาน! ค่าแรงขึ้นอัตโนมัติ ไม่ต้องรอกฎหมาย
-                                            พร้อมสวัสดิการรักษาพยาบาลที่ดีกว่าเดิม
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #แรงงานสร้างชาติ
-                                                #ค่าแรงเป็นธรรม #โรงงานใหม่</span>
-                                        </td>
-                                        <td>ขอค่าแรงที่สมเหตุสมผลกับค่าครองชีพหน่อยครับ หวังกับพรรคนี้</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ค้าขาย</td>
-                                        <td><span class="badge bg-success">Specific</span></td>
-                                        <td>ค้าขายคล่องตัว เลิกรีดไถ เลิกส่วย!</td>
-                                        <td>ขายของกำไรน้อย ยังมาโดนรีดไถอีก! พลเอกรังษี สั่งลุย!
-                                            ปราบส่วยรีดไถพ่อค้าแม่ค้า ใครมารีดไถ แจ้งจับได้ทันที!
-                                            พร้อมดึงนักท่องเที่ยวเข้าไทย กระตุ้นตลาดให้คึกคัก
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #เลิกส่วย #ค้าขายเสรี
-                                                #SMEต้องรอด</span>
-                                        </td>
-                                        <td>เบื่อพวกเก็บส่วยมาก ปราบให้หมดนะท่าน</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ข้าราชการ</td>
-                                        <td><span class="badge bg-success">Specific</span></td>
-                                        <td>คืนศักดิ์ศรีข้าราชการ ทำงานเพื่อประชาชน</td>
-                                        <td>เป็นข้าราชการชั้นผู้น้อย โดนกดขี่ สั่งงานไม่เป็นธรรม! พรรคเศรษฐกิจ
-                                            จะปฏิรูประบบราชการ คนทำงานดีต้องได้ดี! เลิกเด็กเส้น เลิกซื้อตำแหน่ง
-                                            คืนศักดิ์ศรีให้ข้าราชการน้ำดี
-                                            <span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
-                                                #ศักดิ์ศรีชาติไทย #อนาคตลูกหลาน #มีกินยั่งยืน #ข้าราชการไทย
-                                                #คืนศักดิ์ศรี #ระบบคุณธรรม</span>
-                                        </td>
-                                        <td>ข้าราชการชั้นผู้น้อยรอนโยบายนี้มานานแล้วครับ</td>
+                                        <td class="text-dark"><strong style="color:#000000">TikTok</strong></td>
+                                        <td class="text-dark">18:00-22:00 (เน้นช่วงดึก)</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -674,108 +105,464 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Hero copy options -->
-        <div class="row mt-4 g-3">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <span>ตัวเลือก Headline สำหรับ Hero (เลือก 1 บรรทัดหลัก + 1 บรรทัดรอง)</span>
-                        <small class="badge bg-primary">ใช้ใกล้ตารางแผน Content</small>
+        <!-- STRATEGIC ROADMAP SECTION -->
+        <section id="roadmap" class="container mb-5 pt-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Strategic Roadmap</h2>
+                <p class="text-muted">4 ขั้นตอนกู้ชาติ: จากวิกฤตสู่ความยั่งยืน</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <!-- Phase 1 -->
+                    <div class="timeline-step">
+                        <h4>Phase 1: Stop the Bleeding (1-12 Months)</h4>
+                        <div class="card-light-yellow p-4 mt-3">
+                            <h5 class="text-dark border-bottom border-warning pb-2 mb-3">📍 ความมั่นคงต้องมาก่อน
+                                (Security First)</h5>
+                            <ul class="list-unstyled text-dark">
+                                <li class="mb-2">⚡ <strong>Law & Order:</strong> ปราบปรามสแกมเมอร์ ทุนสีเทาข้ามชาติ
+                                    และคอร์รัปชันอย่างเด็ดขาด</li>
+                                <li class="mb-2">⚡ <strong>Zero Leakage:</strong> อุดทุกรอยรั่วทางการเงินของประเทศ
+                                    เพื่อเรียกความเชื่อมั่นนักลงทุนกลับคืน</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="timeline-step">
+                        <h4>Phase 2: Economic Surgery (Year 1-2)</h4>
+                        <div class="card-light-yellow p-4 mt-3">
+                            <h5 class="text-dark border-bottom border-warning pb-2 mb-3">📍 ผ่าตัดโครงสร้างเศรษฐกิจ
+                                (Deleveraging)</h5>
+                            <ul class="list-unstyled text-dark">
+                                <li class="mb-2">⚡ <strong>Debt Restructuring:</strong> เจรจาลดหนี้ครั้งใหญ่ (Grand Debt
+                                    Haircut) ให้ภาคประชาชนและ SME</li>
+                                <li class="mb-2">⚡ <strong>Lean Government:</strong> ปฏิรูประบบราชการ
+                                    ลดขนาดองค์กรที่ไม่จำเป็น ใช้ AI ทำงานแทนคน</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="timeline-step">
+                        <h4>Phase 3: New Growth Engine (Year 2-5)</h4>
+                        <div class="card-light-yellow p-4 mt-3">
+                            <h5 class="text-dark border-bottom border-warning pb-2 mb-3">📍 สร้างรายได้ใหม่
+                                (Modernization)</h5>
+                            <ul class="list-unstyled text-dark">
+                                <li class="mb-2">⚡ <strong>Tech Transfer:</strong> ร่วมทุนจีน/ต่างชาติ
+                                    โดยมีเงื่อนไขต้องถ่ายทอดเทคโนโลยีให้คนไทย</li>
+                                <li class="mb-2">⚡ <strong>Ocean Link:</strong> สร้างศูนย์กลาง Logistics ระดับโลก
+                                    เชื่อมโยงการค้า 5 ประเทศ</li>
+                                <li>⚡ <strong>Smart Farming:</strong> ยกระดับเกษตรกรด้วยเทคโนโลยี เป็นผู้ผลิตอาหารโลก
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="timeline-step border-0">
+                        <h4>Phase 4: Spiritual & Well-being (Long Term)</h4>
+                        <div class="card-light-yellow p-4 mt-3">
+                            <h5 class="text-dark border-bottom border-warning pb-2 mb-3">📍 สังคมเป็นสุข (Gross National
+                                Happiness)</h5>
+                            <ul class="list-unstyled text-dark">
+                                <li class="mb-2">⚡ <strong>Welfare State:</strong> รัฐสวัสดิการที่ยั่งยืน ดูแลคนแก่ เด็ก
+                                    และผู้ป่วย</li>
+                                <li>⚡ <strong>Moral Society:</strong> เมื่อเศรษฐกิจดี สังคมมีศีลธรรม
+                                    คุณภาพชีวิตและจิตวิญญาณจะกลับคืนมา</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ROADMAP TABLE SECTION (For Sharing) -->
+        <section id="roadmap-table" class="container mb-5 pt-4">
+            <div class="text-center mb-4">
+                <h2 class="display-6 fw-bold text-gold">Roadmap Summary</h2>
+                <p class="text-white-muted">ตารางสรุปยุทธศาสตร์ 4 ระยะ (Save & Share)</p>
+            </div>
+            <div class="card-premium p-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-light-yellow text-start mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-dark border-secondary">ระยะ (Phase)</th>
+                                <th class="text-dark border-secondary">เป้าหมายหลัก</th>
+                                <th class="text-dark border-secondary">สิ่งที่ทำทันที (Action)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-dark border-secondary"><strong>Phase 1: Stop Bleeding</strong><br><small
+                                        class="text-muted">1-12 เดือน</small></td>
+                                <td class="text-dark border-secondary">ความมั่นคง (Security)<br>อุดรอยรั่วประเทศ</td>
+                                <td class="text-dark border-secondary">
+                                    <ul class="mb-0 ps-3">
+                                        <li>ปราบสแกมเมอร์/ทุนสีเทา</li>
+                                        <li><span class="text-dark-red fw-bold">โทษประหาร / ยึดทรัพย์</span> คดีโกง</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-secondary"><strong>Phase 2: Surgery</strong><br><small
+                                        class="text-muted">ปีที่ 1-2</small></td>
+                                <td class="text-dark border-secondary">ผ่าตัดหนี้สิน (Deleveraging)<br>ลดภาระประชาชน
+                                </td>
+                                <td class="text-dark border-secondary">
+                                    <ul class="mb-0 ps-3">
+                                        <li>เจรจาลดหนี้ครั้งใหญ่ (Haircut)</li>
+                                        <li>ลดขนาดรัฐ (Lean Gov)</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-secondary"><strong>Phase 3: Growth</strong><br><small
+                                        class="text-muted">ปีที่ 2-5</small></td>
+                                <td class="text-dark border-secondary">สร้างรายได้ใหม่
+                                    (Modernization)<br>เศรษฐกิจทันสมัย</td>
+                                <td class="text-dark border-secondary">
+                                    <ul class="mb-0 ps-3">
+                                        <li>Ocean Link ถ่ายทอดเทคโนโลยี</li>
+                                        <li>Smart Farming / EV Hub</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-dark border-secondary"><strong>Phase 4: Well-being</strong><br><small
+                                        class="text-muted">ระยะยาว</small></td>
+                                <td class="text-dark border-secondary">ความสุขยั่งยืน (Happiness)<br>รัฐสวัสดิการ</td>
+                                <td class="text-dark border-secondary">
+                                    <ul class="mb-0 ps-3">
+                                        <li>สวัสดิการถ้วนหน้า</li>
+                                        <li>สังคมศีลธรรมสูง</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARISON SECTION -->
+        <section id="comparison" class="container mb-5 pt-4">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold">Why Us?</h2>
+                <p class="text-muted">เปรียบเทียบจุดยืนและนโยบายพรรคการเมืองใหญ่</p>
+            </div>
+
+            <div class="card-premium p-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-light-yellow text-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="py-3 fs-5 text-dark border-secondary">หัวข้อเปรียบเทียบ</th>
+                                <th class="py-3 fs-5 bg-warning text-dark border-secondary highlight-our-party">
+                                    พรรคเศรษฐกิจ
+                                    (พล.อ.รังษี)</th>
+                                <th class="py-3 fs-5 text-dark border-secondary">พรรคประชาชน</th>
+                                <th class="py-3 fs-5 text-dark border-secondary">พรรคเพื่อไทย</th>
+                                <th class="py-3 fs-5 text-dark border-secondary">พรรคภูมิใจไทย</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold text-dark text-start border-secondary">สโลแกน</td>
+                                <td class="highlight-our-party fw-bold text-dark border-secondary">"The Final
+                                    Exit"<br>ปราบโกง-ล้างบางทุนสีเทา</td>
+                                <td class="text-dark border-secondary">"เท่าเทียม ทั่วถึง ทันโลก"</td>
+                                <td class="text-dark border-secondary">"คิดใหญ่ ทำเป็น"</td>
+                                <td class="text-dark border-secondary">"พูดแล้วทำ"</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-dark text-start border-secondary">นโยบายปราบโกง</td>
+                                <td class="highlight-our-party text-dark-red fw-bold border-secondary">โทษประหาร /
+                                    ยึดทรัพย์ทันที</td>
+                                <td class="text-dark border-secondary">แก้ระบบราชการ / Open Data</td>
+                                <td class="text-dark border-secondary">ใช้ Blockchain ตรวจสอบ</td>
+                                <td class="text-dark border-secondary">ลดดุลยพินิจเจ้าหน้าที่</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-dark text-start border-secondary">เศรษฐกิจหลัก</td>
+                                <td class="highlight-our-party text-dark border-secondary">Ocean Link / Mega
+                                    Logistics<br>เชื่อมโลก BRICS</td>
+                                <td class="text-dark border-secondary">ทลายทุนผูกขาด / รัฐสวัสดิการ</td>
+                                <td class="text-dark border-secondary">Digital Wallet / Landbridge</td>
+                                <td class="text-dark border-secondary">เศรษฐกิจฐานราก / กัญชาเสรี</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-dark text-start border-secondary">นิยาม "รักชาติ"</td>
+                                <td class="highlight-our-party text-dark border-secondary">ความมั่นคงและระเบียบ<br>(Law
+                                    & Order)</td>
+                                <td class="text-dark border-secondary">ชาติคือประชาชน</td>
+                                <td class="text-dark border-secondary">ชาติคือโอกาสทางเศรษฐกิจ</td>
+                                <td class="text-dark border-secondary">ชาติคือสถาบันหลัก</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-bold text-dark text-start border-secondary">ภาพลักษณ์ผู้นำ</td>
+                                <td class="highlight-our-party text-dark border-secondary">นายทหารเด็ดขาด (Decisive)
+                                </td>
+                                <td class="text-dark border-secondary">นักวิชาการ / คนรุ่นใหม่</td>
+                                <td class="text-dark border-secondary">CEO บริหารเก่ง</td>
+                                <td class="text-dark border-secondary">นักประสานสิบทิศ (Deal Maker)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL MEDIA PLAN (Restored Full Version) -->
+        <section class="container mb-5 pt-4">
+            <div class="card-premium">
+                <div class="card-header-premium d-flex justify-content-between align-items-center">
+                    <span>ตารางแผน Content (Social Media Plan)</span>
+                    <span class="badge bg-gold text-dark">Total: 20 Posts (Internal)</span>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-light-yellow text-start mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="p-3 fs-6 text-dark border-secondary">กลุ่มเป้าหมาย</th>
+                                    <th class="p-3 fs-6 text-dark border-secondary">Tone</th>
+                                    <th class="p-3 fs-6 text-dark border-secondary">พาดหัว (Headline)</th>
+                                    <th class="p-3 fs-6 text-dark border-secondary">เนื้อหาโพสต์ (Caption)</th>
+                                    <th class="p-3 fs-6 text-dark border-secondary">Seeding Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Z<br><small
+                                            class="text-muted">(18-25)</small></td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-info text-dark">บ้านๆ</span></td>
+                                    <td class="text-dark border-secondary">เรียนจบแล้วไปไหน? ถ้างานหายากนัก มาทางนี้!
+                                    </td>
+                                    <td class="text-dark border-secondary">จบมาเตะฝุ่น ไม่ใช่เพราะเราไม่เก่ง
+                                        แต่โครงสร้างมันห่วย!<br>พลเอกรังษี
+                                        ไม่ขายฝัน แต่สร้างงานจริงด้วย 'Ocean Link' เขตเศรษฐกิจใหม่ ดึงเงินนอกเข้าไทย
+                                        งาน High Tech เงินเดือนสูงรออยู่เพียบ<br>อย่าปล่อยให้อนาคตจมปลัก
+                                        เลือกคนที่กล้ารื้อระบบ เพื่อพวกเรา!
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #นายกรังษี #นิคมเกษตร #Oceanlink
+                                            #วัยรุ่นสร้างตัว</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">นโยบายนี้ตอบโจทย์เด็กจบใหม่สุดๆ
+                                        ไม่อยากย้ายประเทศแล้ว</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Z</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-secondary">Soft/ผู้ดี</span></td>
+                                    <td class="text-dark border-secondary">ความยุติธรรมที่จับต้องได้
+                                        เพื่อสังคมที่เท่าเทียม</td>
+                                    <td class="text-dark border-secondary">สังคมที่น่าอยู่ คือสังคมที่กติกาเป็นธรรม...
+                                        พรรคเศรษฐกิจ
+                                        มุ่งมั่นปฏิรูปกระบวนการยุติธรรม คดีคอร์รัปชันต้องจบไว
+                                        คนผิดต้องได้รับโทษโดยไม่มีข้อยกเว้น
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #ความยุติธรรม #CleanPolitics</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ชอบวิสัยทัศน์ครับ
+                                        อยากเห็นกฎหมายศักดิ์สิทธิ์จริงๆ สักที</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Z</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-primary">Hard/Editor</span></td>
+                                    <td class="text-dark border-secondary">ถึงเวลา 'Reset' ประเทศ
+                                        ด้วยยุทธศาสตร์เศรษฐกิจใหม่</td>
+                                    <td class="text-dark border-secondary">ในยุคที่ Disruption ไล่ล่าเรา
+                                        ไทยจะอยู่เฉยไม่ได้... พลเอกรังษี เสนอโมเดล
+                                        'The Final Exit' เชื่อมโยง Logistics โลกผ่านไทย
+                                        เปลี่ยนภูมิรัฐศาสตร์ให้เป็นเงินตรา
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #StartUpThailand #LogisticsHub
+                                            #ResetThailand</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">นี่คือสิ่งที่รอมานาน เลิกคุยเรื่องเดิมๆ
+                                        แล้วคุยเรื่องอนาคตแบบนี้สิ</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Z</td>
+                                    <td class="text-dark border-secondary"><span class="badge bg-danger">Hard/แรง</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">พวกโกงชาติ... เตรียมตัว 'เกม' ได้เลย!</td>
+                                    <td class="text-dark border-secondary">เบื่อไหม?
+                                        ข่าวโกงกินเป็นพันล้านแต่คนทำลอยนวล... พรรคเศรษฐกิจ ของจริง!
+                                        ปราบโกงโทษประหาร ยึดทรัพย์ทันที คดีจบใน 1 ปี ใครกัดกินอนาคตเจอของจริงแน่!
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #ปราบโกง #CorruptionMustDie</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">สะใจมาก! ต้องแบบนี้สิถึงจะแก้ปัญหาได้จริง
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Y<br><small
+                                            class="text-muted">(26-40)</small></td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-info text-dark">บ้านๆ</span></td>
+                                    <td class="text-dark border-secondary">หนี้บาน เงินเดือนตัน ฟังทางนี้!</td>
+                                    <td class="text-dark border-secondary">ผ่อนบ้าน ผ่อนรถ ค่าเทอมลูก...
+                                        หมุนเงินจนหน้ามืด! พลเอกรังษี
+                                        เข้าใจคนทำมาหากิน นโยบายลดค่าครองชีพ ลดค่าไฟ ลดราคาน้ำมัน ทำทันที!
+                                        พร้อมดึงงานใหญ่เข้าประเทศ
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #มนุษย์เงินเดือน #ปลดหนี้
+                                            #ค่าครองชีพแพง</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">เข้าใจหัวอกคนวัยสร้างตัวที่สุด
+                                        นโยบายนี้ช่วยได้เยอะเลย</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen Y</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-secondary">Soft/ผู้ดี</span></td>
+                                    <td class="text-dark border-secondary">สร้างความมั่นคง... ให้กับคนที่คุณรัก</td>
+                                    <td class="text-dark border-secondary">เพราะเรารู้ว่า 'ครอบครัว'
+                                        สำคัญที่สุดสำหรับคุณ... พรรคเศรษฐกิจ
+                                        มุ่งมั่นสร้างรากฐานเศรษฐกิจที่แข็งแกร่ง ผ่านโครงการ Mega Projects
+                                        เพื่อให้คุณมั่นใจได้ว่าวันพรุ่งนี้จะมีงานที่มั่นคง
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #ครอบครัวอบอุ่น #ความมั่นคง</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">อ่านแล้วมีหวังเลยค่ะ
+                                        เพื่อลูกหลานเราต้องเลือกพรรคนี้</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen X<br><small
+                                            class="text-muted">(41-55)</small></td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-info text-dark">บ้านๆ</span></td>
+                                    <td class="text-dark border-secondary">ค้าขายเงียบเหงา ต้องเอานายกฯ ที่กล้าตัดสินใจ
+                                    </td>
+                                    <td class="text-dark border-secondary">เปิดร้านมานั่งตบยุง ลูกค้าหายหมด
+                                        เพราะเศรษฐกิจมันนิ่ง! ต้องเลือก
+                                        'พลเอกรังษี' คนจริง สั่งการไว แก้ปัญหาเศรษฐกิจแบบทหาร ตูมเดียวจบ! รถไฟมา
+                                        ตลาดเปิด เงินสะพัด
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #พ่อค้าแม่ค้า #ค้าขายร่ำรวย</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ค้าขายแย่มานาน
+                                        อยากได้คนเด็ดขาดมาแก้ปัญหาจริงๆ</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Gen X</td>
+                                    <td class="text-dark border-secondary"><span class="badge bg-danger">Hard/แรง</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">กวาดล้างข้าราชการกังฉิน คืนภาษีให้ประชาชน!
+                                    </td>
+                                    <td class="text-dark border-secondary">ภาษีทุกบาทที่เราจ่าย ไปเข้ากระเป๋าใคร?
+                                        พลเอกรังษี ประกาศสงครามกับคอร์รัปชัน!
+                                        ใครโกงกินงบประมาณแผ่นดิน เจอโทษหนักไม่มีละเว้น เงินภาษีต้องกลับมาเป็นถนน
+                                        เป็นโรงพยาบาล
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #ภาษีกู #ปราบโกง #ทวงคืนภาษี</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">จัดหนักๆ เลยครับท่าน เกลียดพวกโกงกินที่สุด
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-dark border-secondary">Boomer<br><small
+                                            class="text-muted">(55+)</small></td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-info text-dark">บ้านๆ</span></td>
+                                    <td class="text-dark border-secondary">บ้านเมืองสงบ ลูกหลานมีงานทำ เลือกบิ๊กรังษี
+                                    </td>
+                                    <td class="text-dark border-secondary">คนแก่ๆ อย่างเรา ไม่ขออะไรมาก
+                                        ขอแค่บ้านเมืองไม่วุ่นวาย...
+                                        ลุงรังษีแกเป็นทหารเก่า แกเอาอยู่! บ้านเมืองสงบ เศรษฐกิจก็ดี
+                                        ลูกหลานก็กลับมาหางานทำที่บ้านได้
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #รักชาติศาสน์กษัตริย์
+                                            #บ้านเมืองสงบ</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ลุงแกดูพึ่งพาได้ ขอให้บ้านเมืองสงบจริงๆ เถอะ
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary">Boomer</td>
+                                    <td class="text-dark border-secondary"><span class="badge bg-danger">Hard/แรง</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">อย่าปล่อยให้คนชั่วลอยนวล!
+                                        กฎหมายต้องศักดิ์สิทธิ์</td>
+                                    <td class="text-dark border-secondary">เห็นข่าวทุกวันนี้แล้วเจ็บใจ!
+                                        กฎหมายทำอะไรคนรวยไม่ได้? ยุคพลเอกรังษี
+                                        ต้องไม่มีสองมาตรฐาน! ผิดคือผิด โกงคือประหาร! เลิกเกรงใจอิทธิพลมืด
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #กฎหมายศักดิ์สิทธิ์ #ขจัดคนพาล</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">สนับสนุนเต็มที่ครับ กฎหมายต้องเป็นกฎหมาย</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="text-dark border-secondary fw-bold">เกษตรกร</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-success">Specific</span></td>
+                                    <td class="text-dark border-secondary">ปลดแอกหนี้สิน! รวยด้วยเกษตรแปรรูป</td>
+                                    <td class="text-dark border-secondary">ทำนามาทั้งชีวิต มีแต่หนี้กับหนี้!
+                                        พรรคเศรษฐกิจ ไม่แจกเงินให้เป็นหนี้บุญคุณ
+                                        แต่จะสร้างโรงงานแปรรูปให้ถึงที่! รับซื้อราคาประกัน! มีน้ำตลอดปี
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #เกษตรกรร่ำรวย #ปลดหนี้เกษตร</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ถ้าทำได้จริง ชาวนาลืมตาอ้าปากได้แน่นอน</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary fw-bold">แรงงาน</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-success">Specific</span></td>
+                                    <td class="text-dark border-secondary">ค่าแรงต้องพอกิน! สวัสดิการต้องถึง!</td>
+                                    <td class="text-dark border-secondary">ทำงานงกๆ เงินไม่พอใช้หนี้! นโยบาย Ocean Link
+                                        จะดึงโรงงานใหญ่ๆ เข้ามา
+                                        แย่งกันจ้างคนงาน! ค่าแรงขึ้นอัตโนมัติ ไม่ต้องรอกฎหมาย
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #แรงงานสร้างชาติ #ค่าแรงเป็นธรรม</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ขอค่าแรงที่สมเหตุสมผลกับค่าครองชีพหน่อยครับ
+                                        หวังกับพรรคนี้</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary fw-bold">ค้าขาย</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-success">Specific</span></td>
+                                    <td class="text-dark border-secondary">ค้าขายคล่องตัว เลิกรีดไถ เลิกส่วย!</td>
+                                    <td class="text-dark border-secondary">ขายของกำไรน้อย ยังมาโดนรีดไถอีก! พลเอกรังษี
+                                        สั่งลุย!
+                                        ปราบส่วยรีดไถพ่อค้าแม่ค้า ใครมารีดไถ แจ้งจับได้ทันที!
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #เลิกส่วย #ค้าขายเสรี #SMEต้องรอด</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">เบื่อพวกเก็บส่วยมาก ปราบให้หมดนะท่าน</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-dark border-secondary fw-bold">ข้าราชการ</td>
+                                    <td class="text-dark border-secondary"><span
+                                            class="badge bg-success">Specific</span></td>
+                                    <td class="text-dark border-secondary">คืนศักดิ์ศรีข้าราชการ ทำงานเพื่อประชาชน</td>
+                                    <td class="text-dark border-secondary">เป็นข้าราชการชั้นผู้น้อย โดนกดขี่
+                                        สั่งงานไม่เป็นธรรม! พรรคเศรษฐกิจ
+                                        จะปฏิรูประบบราชการ คนทำงานดีต้องได้ดี! เลิกเด็กเส้น เลิกซื้อตำแหน่ง
+                                        <br><span class="hashtag">#พรรคเศรษฐกิจ #ข้าราชการไทย #คืนศักดิ์ศรี
+                                            #ระบบคุณธรรม</span>
+                                    </td>
+                                    <td class="text-dark border-secondary">ข้าราชการชั้นผู้น้อยรอนโยบายนี้มานานแล้วครับ
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">ดุดันที่สุด (เปิดเกม)</div>
-                        <div>หยุดโกง พลิกประเทศ สร้างอนาคตไทย</div>
-                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นแลนด์สไลด์</div>
-                        <div>ถึงเวลาชนะให้ขาด เพื่อเปลี่ยนประเทศทั้งระบบ</div>
-                        <div class="text-muted">เศรษฐกิจต้องมีเจ้าภาพ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นผู้นำ</div>
-                        <div>ประเทศต้องการผู้นำที่กล้าตัดสินใจ</div>
-                        <div class="text-muted">ไม่พูดมาก แต่ทำให้เห็นผลจริง</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นนโยบาย</div>
-                        <div>ปราบโกง สร้างงาน เชื่อมโลก ปฏิรูปยุติธรรม</div>
-                        <div class="text-muted">แผนชัด ทำได้จริง เพื่อคนไทยทั้งประเทศ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">เน้นปากท้อง</div>
-                        <div>ลดต้นทุนชีวิต เพิ่มรายได้คนไทย</div>
-                        <div class="text-muted">เศรษฐกิจจริง ไม่ใช่คำสัญญา</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">สั้น กระแทกใจ</div>
-                        <div>เศรษฐกิจต้องมีเจ้าภาพ</div>
-                        <div class="text-muted">ความหวังเดียวของไทยทั้งชาติ</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">ใช้กับภาพผู้นำ</div>
-                        <div>ถึงเวลาคนทำงานจริง บริหารประเทศจริง</div>
-                        <div class="text-muted">ชนะอย่างแลนด์สไลด์ เพื่ออนาคตไทย</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <div class="fw-bold mb-1">สำหรับหน้า Campaign</div>
-                        <div>4 นโยบายเด็ด พลิกประเทศทั้งระบบ</div>
-                        <div class="text-muted">ชนะวันนี้ เพื่ออนาคตลูกหลาน</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
 
     </div>
 
-    <script>
-        // Ensure in-page buttons scroll reliably
-        document.querySelectorAll('a[href="#contentTableSection"], a[href="#key-policies"]').forEach((btn) => {
-            btn.addEventListener('click', (event) => {
-                const target = document.querySelector(btn.getAttribute('href'));
-                if (target) {
-                    event.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
+    <footer class="text-center py-4 mt-5 border-top border-secondary" style="background: rgba(0,0,0,0.2);">
+        <p class="mb-0 text-white-muted">&copy; 2026 Economic Party. All Rights Reserved.</p>
+        <p class="small text-muted">Produced for Campaign Strategy Internal Review</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

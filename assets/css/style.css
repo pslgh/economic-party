@@ -1,0 +1,251 @@
+:root {
+    --gold-primary: #FFD700;
+    --gold-hover: #FFC107;
+    --gold-text-dark: #cc9900;
+    /* Darker gold for text readability on white */
+    --dark-bg-start: #333333;
+    --dark-bg-end: #1a1a1a;
+    --text-white: #FFFFFF;
+    --text-muted: #B0BEC5;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    /* Glassmorphism light */
+    --card-border: rgba(255, 215, 0, 0.2);
+    --glow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background: linear-gradient(135deg, var(--dark-bg-start), var(--dark-bg-end));
+    color: var(--text-white);
+    font-family: 'Sarabun', sans-serif;
+    min-height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Prompt', sans-serif;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-gold {
+    color: var(--gold-text-dark) !important;
+}
+
+.text-dark-red {
+    color: #8B0000 !important;
+}
+
+.text-white-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Cards & Containers */
+.card-premium {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--glow);
+    color: var(--text-white);
+    transition: transform 0.3s ease;
+}
+
+.card-premium:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-primary);
+}
+
+.card-header-premium {
+    background: rgba(255, 215, 0, 0.1);
+    border-bottom: 1px solid var(--card-border);
+    color: var(--gold-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 1rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+/* Buttons */
+.btn-gold {
+    background: linear-gradient(45deg, var(--gold-primary), #FFB300);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background: linear-gradient(45deg, #FFB300, var(--gold-primary));
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    color: #000;
+}
+
+/* Roadmap Timeline */
+.timeline-step {
+    position: relative;
+    padding: 20px;
+    border-left: 3px solid var(--gold-primary);
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--gold-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--gold-primary);
+}
+
+.timeline-step h4 {
+    margin-top: 0;
+    color: var(--gold-primary);
+}
+
+/* Comparison Table */
+.table-premium {
+    color: var(--text-white);
+}
+
+.table-premium th {
+    background-color: rgba(255, 215, 0, 0.1);
+    color: var(--gold-primary);
+    border-color: var(--card-border);
+}
+
+.table-premium td {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
+}
+
+/* Highlight with distinct yellow for light theme */
+.highlight-our-party {
+    background-color: #FFF59D !important;
+    /* Lighter Gold/Yellow */
+    border: 2px solid var(--gold-primary) !important;
+}
+
+/* Light Yellow Table Theme */
+.table-light-yellow {
+    background-color: #FFFDE7 !important;
+    /* Light Yellow */
+    color: #333333 !important;
+}
+
+.table-light-yellow th {
+    background-color: #FFECB3 !important;
+    /* Darker Yellow Header */
+    color: #444 !important;
+    border-color: #FFD54F !important;
+}
+
+.table-light-yellow td {
+    background-color: transparent !important;
+    border-color: #FFF59D !important;
+    color: #333333 !important;
+}
+
+.table-light-yellow strong {
+    color: #000 !important;
+}
+
+/* Light Yellow Card Theme */
+.card-light-yellow {
+    background-color: #FFFDE7;
+    border: 1px solid #FFD54F;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    transition: transform 0.3s ease;
+}
+
+.card-light-yellow:hover {
+    transform: translateY(-5px);
+    border-color: #FFA000;
+}
+
+/* Impactful Hero Styles */
+.text-gradient-gold {
+    background: linear-gradient(135deg, #FFD700 0%, #FFB300 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.text-display-giant {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.btn-pulse {
+    animation: pulse-gold 2s infinite;
+}
+
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+/* Hero Badge */
+.hero-badge-gold {
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-primary);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* 
+   MASSIVE FONT SIZE UPDATE (User Request) 
+   Excluding Headings (h1-h6)
+*/
+p,
+li,
+td,
+th,
+.btn,
+input,
+label,
+.badge:not(.hero-badge *) {
+    font-size: 1.5rem !important;
+    line-height: 1.7;
+}
+
+.lead {
+    font-size: 1.8rem !important;
+    font-weight: 500;
+}
+
+/* Ensure icons/emojis scale too if not text */
+span {
+    font-size: inherit;
+}
